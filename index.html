@@ -3,84 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <title>Battle Royale Simulator</title>
+
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
       padding: 0;
       background: #f4f6f8;
-    }
-
-    header {
-      background: #1e90ff;
-      padding: 16px;
+      font-family: sans-serif;
       text-align: center;
     }
 
-    button {
-      margin: 4px;
-      padding: 10px 16px;
+    /* 上の余白 */
+    .top-space {
+      height: 40px;
+    }
+
+    /* タイトル */
+    h1 {
+      margin-bottom: 16px;
+    }
+
+    /* ボタンエリア */
+    .menu {
+      margin-bottom: 24px;
+    }
+
+    .menu button {
+      background: none;
       border: none;
-      border-radius: 6px;
-      background: white;
+      font-size: 16px;
+      margin: 0 12px;
       cursor: pointer;
-      font-size: 14px;
+      color: #1e90ff;
     }
 
-    button:hover {
-      background: #e0e0e0;
+    .menu button:hover {
+      text-decoration: underline;
     }
 
+    /* コンテンツ */
     .content {
       display: none;
-      padding: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
     }
 
     .content.active {
       display: block;
     }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+
+    a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <button onclick="showPage('game')">ゲーム</button>
-  <button onclick="showPage('guideline')">配信ガイドライン</button>
-  <button onclick="showPage('download')">素材ダウンロード</button>
-  <button onclick="showPage('profile')">プロフィール</button>
-</header>
+  <div class="top-space"></div>
 
-<!-- ゲーム -->
-<div id="game" class="content active">
-  <h1>Battle Royale Simulator</h1>
-  <p>バトルロワイヤルを運営する経営シミュレーションゲームです。</p>
-</div>
+  <!-- 名前 -->
+  <h1>MizoCreate</h1>
 
-<!-- 配信ガイドライン -->
-<div id="guideline" class="content">
-  <h1>配信ガイドライン</h1>
-  <p>収益化OK / クレジット表記不要 / ネタバレ可 など</p>
-</div>
+  <!-- ボタン -->
+  <div class="menu">
+    <button onclick="showPage('game')">ゲーム</button>
+    <button onclick="showPage('guideline')">配信ガイドライン</button>
+    <button onclick="showPage('download')">素材ダウンロード</button>
+    <button onclick="showPage('profile')">プロフィール</button>
+  </div>
 
-<!-- 素材ダウンロード -->
-<div id="download" class="content">
-  <h1>素材ダウンロード</h1>
-  <p>ロゴ・スクリーンショット・動画素材を配布予定</p>
-</div>
+  <!-- ゲーム -->
+  <div id="game" class="content active">
+    <h2>Battle Royale Simulator</h2>
+    <p>
+      バトルロワイヤルを運営する経営シミュレーションゲーム。
+      マップを拡張し、環境を整え、ガチャ収益を最大化しよう。
+    </p>
 
-<!-- プロフィール -->
-<div id="profile" class="content">
-  <h1>プロフィール</h1>
-  <p>開発者：mizo create</p>
-</div>
+    <!-- スクリーンショット -->
+    <img src="screenshot.png" alt="ゲームスクリーンショット">
 
-<script>
-  function showPage(id) {
-    const pages = document.querySelectorAll('.content');
-    pages.forEach(page => page.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-</script>
+    <!-- YouTube動画 -->
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- 配信ガイドライン -->
+  <div id="guideline" class="content">
+    <h2>配信ガイドライン</h2>
+    <p>
+      ・個人・法人問わず配信可<br>
+      ・収益化可<br>
+      ・クレジット表記不要
+    </p>
+  </div>
+
+  <!-- 素材ダウンロード -->
+  <div id="download" class="content">
+    <h2>素材ダウンロード</h2>
+    <p>
+      ロゴ・スクリーンショット・動画素材を配布予定です。
+    </p>
+  </div>
+
+  <!-- プロフィール -->
+  <div id="profile" class="content">
+    <h2>プロフィール</h2>
+    <p>開発者：MizoCreate</p>
+
+    <p>
+      ▶ <a href="https://store.steampowered.com/" target="_blank">
+        Steamページ
+      </a>
+    </p>
+
+    <p>
+      ▶ <a href="https://www.youtube.com/" target="_blank">
+        YouTubeチャンネル
+      </a>
+    </p>
+  </div>
+
+  <script>
+    function showPage(id) {
+      const pages = document.querySelectorAll('.content');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
